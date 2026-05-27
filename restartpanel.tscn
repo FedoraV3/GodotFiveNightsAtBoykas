@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cm21qjwttq52f"]
+
+[ext_resource type="Texture2D" uid="uid://db28c3v3ekn0b" path="res://images/restartpanel.png" id="1_j8bsf"]
+[ext_resource type="Script" uid="uid://j7uhowo541sf" path="res://scripts/Restartpanel.cs" id="1_v0ipa"]
+[ext_resource type="Texture2D" uid="uid://hcmx4iilg8a" path="res://images/restartpanel/734.png" id="2_rry6w"]
+
+[node name="RestartPanel" type="Node2D" unique_id=155301180]
+script = ExtResource("1_v0ipa")
+
+[node name="RestartButton" type="TextureButton" parent="." unique_id=1587452396]
+self_modulate = Color(1, 1, 1, 0.667)
+offset_top = -2.0
+offset_right = 253.0
+offset_bottom = 55.0
+texture_normal = ExtResource("1_j8bsf")
+
+[node name="Panel" type="Sprite2D" parent="." unique_id=226303533]
+visible = false
+z_index = -1
+position = Vector2(121, -232)
+texture = ExtResource("2_rry6w")
+
+[connection signal="pressed" from="RestartButton" to="." method="toggleRestartPanel"]

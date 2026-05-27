@@ -1,0 +1,54 @@
+# ========== GODOT CORE ==========
+.godot/
+.import/
+*.translation
+.export/
+export.cfg
+export_presets.cfg
+
+# Godot 4 generated folders
+.godot/editor/
+.godot/shader_cache/
+
+# ========== C# / DOTNET ==========
+bin/
+obj/
+*.sln
+*.csproj.user
+*.user
+*.suo
+*.cache
+
+# Visual Studio / Rider noise
+.vs/
+.idea/
+*.DotSettings.user
+
+# backups you accidentally created
+*.csproj.old*
+*.sln.old*
+*.bak
+
+# ========== BUILD OUTPUTS (VERY IMPORTANT) ==========
+*.exe
+*.dll
+*.pdb
+*.apk
+*.aab
+*.pck
+
+# ========== ANDROID / SDK / JDK (DO NOT VERSION CONTROL THESE) ==========
+androidsdk/
+jdk*/
+*.keystore
+
+# ========== OS / EDITOR TRASH ==========
+.DS_Store
+Thumbs.db
+
+# ========== GODOT IMPORTED MEDIA CACHE ==========
+.imported/
+*.import
+
+# ========== OPTIONAL: USER LOCAL CONFIG ==========
+icon.svg.import

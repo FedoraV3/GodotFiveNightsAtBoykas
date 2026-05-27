@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://bvay413ja13u2"]
+
+[ext_resource type="Texture2D" uid="uid://c3xbiuyp4ti8l" path="res://images/cameraopen/59.png" id="1_6acwk"]
+[ext_resource type="Texture2D" uid="uid://bi1bdwkjxtwkj" path="res://images/cameraclose/75.png" id="1_motcw"]
+[ext_resource type="Script" uid="uid://cxv34kgn6kgm7" path="res://scripts/Camera.cs" id="1_w2vvk"]
+[ext_resource type="Texture2D" uid="uid://bljceq7st037" path="res://images/cameraopen/60.png" id="2_motcw"]
+[ext_resource type="Texture2D" uid="uid://cmxwnnt1rxg4g" path="res://images/cameraopen/61.png" id="3_gyfrk"]
+[ext_resource type="Texture2D" uid="uid://cmre2tb7dqq4j" path="res://images/cameraopen/62.png" id="4_2jv0e"]
+[ext_resource type="Texture2D" uid="uid://corvb6yblnduj" path="res://images/cameraopen/63.png" id="5_bbdvs"]
+[ext_resource type="Texture2D" uid="uid://c3iltlso3iilm" path="res://images/cameraopen/68.png" id="6_w2vvk"]
+[ext_resource type="Texture2D" uid="uid://caktwqhykrke8" path="res://images/cameraopen/69.png" id="7_f3tc8"]
+[ext_resource type="Texture2D" uid="uid://cmsrikh7d7obt" path="res://images/cameraopen/71.png" id="8_bi1g6"]
+[ext_resource type="Texture2D" uid="uid://b13sa63j01nxa" path="res://images/cameraopen/72.png" id="9_woum2"]
+[ext_resource type="Texture2D" uid="uid://bk2axp04cwqgc" path="res://images/cameraopen/74.png" id="10_aw76i"]
+[ext_resource type="Texture2D" uid="uid://brgjnncu542rb" path="res://images/cameralocations/116.png" id="12_2jv0e"]
+[ext_resource type="Texture2D" uid="uid://d3w8cxp5enhjt" path="res://images/cameraclick.png" id="12_bbdvs"]
+[ext_resource type="Texture2D" uid="uid://jiellvwg8jb5" path="res://images/626.png" id="13_bbdvs"]
+[ext_resource type="Texture2D" uid="uid://b807e0ie6bej6" path="res://images/cameraicons/85.png" id="15_0skcs"]
+[ext_resource type="Texture2D" uid="uid://cycijaosdng8u" path="res://images/cameraicons/87.png" id="16_n8g8v"]
+[ext_resource type="Texture2D" uid="uid://bikt0457y30st" path="res://images/cameraicons/86.png" id="17_5wrbc"]
+[ext_resource type="Texture2D" uid="uid://cfnmgy4ssn0dr" path="res://images/cameraicons/93.png" id="18_lfb8v"]
+[ext_resource type="Texture2D" uid="uid://bn1wjj2boson4" path="res://images/cameraicons/92.png" id="19_y2xar"]
+[ext_resource type="Texture2D" uid="uid://dc4b8antplac5" path="res://images/cameraicons/91.png" id="20_t7pyt"]
+[ext_resource type="Texture2D" uid="uid://bv87nv6uvp7fa" path="res://images/cameraicons/88.png" id="21_g8iqq"]
+[ext_resource type="Texture2D" uid="uid://darp1x6yyc60g" path="res://images/cameraicons/90.png" id="22_u270x"]
+[ext_resource type="Texture2D" uid="uid://bnk620w61pxxv" path="res://images/cameraicons/89.png" id="23_urdi0"]
+[ext_resource type="Texture2D" uid="uid://c7ekkg1xkeabt" path="res://images/cameraicons/84.png" id="24_tth1g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bnv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6acwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_motcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gyfrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2jv0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bbdvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w2vvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f3tc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bi1g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_woum2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aw76i")
+}],
+"loop": false,
+"name": &"cameraclose",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_aw76i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_woum2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bi1g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f3tc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w2vvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bbdvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2jv0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gyfrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_motcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_6acwk")
+}],
+"loop": false,
+"name": &"cameraopen",
+"speed": 20.0
+}]
+
+[node name="Camera" type="Node2D" unique_id=1482994270]
+script = ExtResource("1_w2vvk")
+
+[node name="CameraPanel" type="Sprite2D" parent="." unique_id=1839065968]
+visible = false
+texture = ExtResource("1_motcw")
+
+[node name="CameraAnimation" type="AnimatedSprite2D" parent="CameraPanel" unique_id=416209607]
+visible = false
+position = Vector2(-1, 3)
+sprite_frames = SubResource("SpriteFrames_5bnv5")
+animation = &"cameraopen"
+
+[node name="MainCamera" type="Sprite2D" parent="." unique_id=1452538038]
+visible = false
+position = Vector2(-10, -2)
+texture = ExtResource("12_2jv0e")
+
+[node name="CameraMap" type="Sprite2D" parent="MainCamera" unique_id=245947174]
+position = Vector2(197.5, 135)
+texture = ExtResource("13_bbdvs")
+
+[node name="TextureButton" type="TextureButton" parent="MainCamera" unique_id=905553863]
+z_index = 4096
+offset_left = 256.0
+offset_top = 178.0
+offset_right = 285.0
+offset_bottom = 203.0
+texture_normal = ExtResource("15_0skcs")
+
+[node name="TextureButton2" type="TextureButton" parent="MainCamera" unique_id=2375893]
+z_index = 4096
+offset_left = 302.0
+offset_top = 104.0
+offset_right = 331.0
+offset_bottom = 129.0
+texture_normal = ExtResource("16_n8g8v")
+
+[node name="TextureButton3" type="TextureButton" parent="MainCamera" unique_id=1938801839]
+z_index = 4096
+offset_left = 303.0
+offset_top = 177.0
+offset_right = 332.0
+offset_bottom = 202.0
+texture_normal = ExtResource("17_5wrbc")
+
+[node name="TextureButton4" type="TextureButton" parent="MainCamera" unique_id=517790860]
+z_index = 4096
+offset_left = 276.0
+offset_top = 40.0
+offset_right = 305.0
+offset_bottom = 65.0
+texture_normal = ExtResource("18_lfb8v")
+
+[node name="TextureButton5" type="TextureButton" parent="MainCamera" unique_id=2059213360]
+z_index = 4096
+offset_left = 208.0
+offset_top = 40.0
+offset_right = 237.0
+offset_bottom = 65.0
+texture_normal = ExtResource("19_y2xar")
+
+[node name="TextureButton6" type="TextureButton" parent="MainCamera" unique_id=1300256731]
+z_index = 4096
+offset_left = 146.0
+offset_top = 84.0
+offset_right = 175.0
+offset_bottom = 109.0
+texture_normal = ExtResource("20_t7pyt")
+
+[node name="TextureButton7" type="TextureButton" parent="MainCamera" unique_id=1277115444]
+z_index = 4096
+offset_left = 205.0
+offset_top = 128.0
+offset_right = 234.0
+offset_bottom = 153.0
+texture_normal = ExtResource("21_g8iqq")
+
+[node name="TextureButton8" type="TextureButton" parent="MainCamera" unique_id=1296585045]
+z_index = 4096
+offset_left = 95.0
+offset_top = 66.0
+offset_right = 124.0
+offset_bottom = 91.0
+texture_normal = ExtResource("22_u270x")
+
+[node name="TextureButton9" type="TextureButton" parent="MainCamera" unique_id=1708859899]
+z_index = 4096
+offset_left = 96.0
+offset_top = 133.0
+offset_right = 125.0
+offset_bottom = 158.0
+texture_normal = ExtResource("23_urdi0")
+
+[node name="TextureButton10" type="TextureButton" parent="MainCamera" unique_id=1866813395]
+z_index = 4096
+offset_left = 108.0
+offset_top = 246.0
+offset_right = 137.0
+offset_bottom = 271.0
+texture_normal = ExtResource("24_tth1g")
+
+[node name="OpenCameraButton" type="TextureButton" parent="." unique_id=1057920009]
+self_modulate = Color(1, 1, 1, 0.9019608)
+offset_left = 345.0
+offset_top = -340.0
+offset_right = 437.0
+offset_bottom = -60.0
+texture_normal = ExtResource("12_bbdvs")
+
+[connection signal="pressed" from="OpenCameraButton" to="." method="toggleCamera"]

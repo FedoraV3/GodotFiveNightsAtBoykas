@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://e2rbql0kvouw"]
+
+[ext_resource type="Script" uid="uid://rdou5o4euldu" path="res://scripts/Office.cs" id="1_ei2s5"]
+[ext_resource type="Texture2D" uid="uid://cb4u5ekk6cian" path="res://images/fg.png" id="1_g3mwp"]
+[ext_resource type="Shader" uid="uid://dblc35dg2abvx" path="res://office.gdshader" id="2_3xqf3"]
+[ext_resource type="Texture2D" uid="uid://beio3dm84xebi" path="res://images/officewindow.png" id="3_u8nhc"]
+[ext_resource type="Texture2D" uid="uid://c8x1aow4aihem" path="res://images/8a4ac6a2a4ee05977b511865eefa7fda.jpg" id="4_43ocd"]
+[ext_resource type="Texture2D" uid="uid://cfcnpgfkvkb55" path="res://images/MV5BZGY0ZjEwNGUtZTJmYy00ZDNiLTllMTYtN2Q5YjRkNDllYzdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.png" id="5_lcnwv"]
+[ext_resource type="AudioStream" uid="uid://ylihcya3gemq" path="res://audio/Desolate_Underworld2.wav" id="6_lcnwv"]
+[ext_resource type="AudioStream" uid="uid://drx4f60huuh11" path="res://audio/iamthemostcompletefightintheworld.wav" id="8_lcwox"]
+[ext_resource type="PackedScene" uid="uid://bvay413ja13u2" path="res://camera.tscn" id="8_wruqr"]
+[ext_resource type="PackedScene" uid="uid://cm21qjwttq52f" path="res://restartpanel.tscn" id="9_lcwox"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xqf3"]
+shader = ExtResource("2_3xqf3")
+shader_parameter/coeff = 0.0
+
+[node name="Office" type="Camera2D" unique_id=1851816946]
+position = Vector2(639.95, 384)
+script = ExtResource("1_ei2s5")
+PanLimit = 360.0
+
+[node name="officebackground" type="Sprite2D" parent="." unique_id=1401575545]
+light_mask = 0
+visibility_layer = 2
+z_index = 600
+z_as_relative = false
+material = SubResource("ShaderMaterial_3xqf3")
+texture = ExtResource("1_g3mwp")
+metadata/_edit_group_ = true
+
+[node name="officewindow" type="Sprite2D" parent="officebackground" unique_id=1080902333]
+z_index = 1
+z_as_relative = false
+position = Vector2(-101.21766, -5.145367)
+rotation = -0.008726646
+scale = Vector2(0.88099647, 0.99129033)
+texture = ExtResource("3_u8nhc")
+metadata/_edit_group_ = true
+
+[node name="Boyka" type="Sprite2D" parent="officebackground/officewindow" unique_id=116177818]
+visible = false
+position = Vector2(650, 0)
+texture = ExtResource("4_43ocd")
+metadata/_edit_group_ = true
+
+[node name="BoykaPeeking" type="Sprite2D" parent="officebackground/officewindow" unique_id=517955539]
+visible = false
+z_index = 601
+position = Vector2(-695, 140)
+scale = Vector2(0.33, 0.33)
+skew = -0.017453292
+texture = ExtResource("5_lcnwv")
+metadata/_edit_group_ = true
+
+[node name="BoykaJumpscare" type="Sprite2D" parent="officebackground/officewindow" unique_id=772311476]
+visible = false
+z_index = 602
+position = Vector2(-240, 149.125)
+scale = Vector2(0.32999998, 0.32999998)
+skew = -0.017453313
+texture = ExtResource("5_lcnwv")
+metadata/_edit_group_ = true
+
+[node name="Camera" parent="officebackground" unique_id=1482994270 instance=ExtResource("8_wruqr")]
+position = Vector2(562.99994, 0)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RestartPanel" parent="officebackground" unique_id=155301180 instance=ExtResource("9_lcwox")]
+z_index = 4096
+position = Vector2(-648.95, 331.67)
+
+[node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=662434371]
+stream = ExtResource("6_lcnwv")
+autoplay = true
+
+[node name="JumpscareSound" type="AudioStreamPlayer" parent="." unique_id=126463255]
+stream = ExtResource("8_lcwox")
+volume_db = 5.0
+
+[node name="Label" type="Label" parent="." unique_id=480664897]
+z_index = 4096
+offset_left = 116.04999
+offset_top = -1.0
+offset_right = 268.05
+offset_bottom = 22.0
+text = "My position: Cam09"
+
+[connection signal="SpringtrapJumpscare" from="." to="officebackground/Camera" method="onJumpscare"]
+[connection signal="SpringtrapJumpscare" from="." to="officebackground/RestartPanel" method="onJumpscare"]
