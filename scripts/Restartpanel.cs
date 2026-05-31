@@ -6,15 +6,18 @@ public partial class Restartpanel : Node2D
 	// todo: fix me plz the hardcode on the singleton
 	private FNAFAI AI;
 	
-	private bool isPanelOpen = false;
+	private bool _panelOpen = false;
+
+	[Export] private Sprite2D Panel;
+	[Export] private TextureButton RestartButton;
+	
+	[Export] private Sprite2D officeBackground;
 	
 	public void toggleRestartPanel()
 	{
-		var Panel = GetNode<Sprite2D>("Panel");
-		var RestartButton = GetNode<TextureButton>("RestartButton");
-		isPanelOpen =  !isPanelOpen;
+		_panelOpen = !_panelOpen;
 		
-		if (isPanelOpen)
+		if (_panelOpen)
 		{
 			// Color(1.0, 1.0, 1.0, 0.235)
 			RestartButton.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 0.235f);
@@ -31,11 +34,15 @@ public partial class Restartpanel : Node2D
 			AI.springtrapCanMoveInOffice = false;
 		}
 	}
-	
+
 	public void onJumpscare()
 	{
-		if (isPanelOpen)
-			toggleRestartPanel();
+		if (_panelOpen)
+		{
+			Panel.Visible = false;
+			RestartButton.Visible = false;
+			_panelOpen = false;
+		}
 	}
 	
 	// Called when the node enters the scene tree for the first time.

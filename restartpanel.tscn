@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://j7uhowo541sf" path="res://scripts/Restartpanel.cs" id="1_v0ipa"]
 [ext_resource type="Texture2D" uid="uid://hcmx4iilg8a" path="res://images/restartpanel/734.png" id="2_rry6w"]
 
-[node name="RestartPanel" type="Node2D" unique_id=155301180]
+[node name="RestartPanel" type="Node2D" unique_id=155301180 node_paths=PackedStringArray("Panel", "RestartButton")]
 script = ExtResource("1_v0ipa")
+Panel = NodePath("Panel")
+RestartButton = NodePath("RestartButton")
 
 [node name="RestartButton" type="TextureButton" parent="." unique_id=1587452396]
 self_modulate = Color(1, 1, 1, 0.667)

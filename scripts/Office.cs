@@ -31,6 +31,11 @@ public partial class Office : Camera2D
 
 	private FNAFAI AI;
 	
+	[Export] private Sprite2D BoykaPeeking;
+	[Export] private Sprite2D BoykaJumpscare;
+	[Export] private Sprite2D Boyka;
+	[Export] private Sprite2D OfficeBackground;
+	
 	// This script should handle springtrap while he is in the office whilst another one will handle his positions in the cameras using events they will communicate with each other whether springtrap is in the cameras or office
 	public async void _springTrapMovedInOffice(int stage)
 	{
@@ -38,26 +43,30 @@ public partial class Office : Camera2D
 		{
 			switch (stage)
 			{
+				case 0:
+					Boyka.Visible = false;
+					BoykaPeeking.Visible = false;
+					break;
 				case 1:
-					GetNode<Node2D>("officebackground/officewindow/Boyka").Visible = true;
+					Boyka.Visible = true;
 					break;
 				case 2:
 					Tween runningTween = GetTree().CreateTween();
-					runningTween.TweenProperty(GetNode<Sprite2D>("officebackground/officewindow/Boyka"), "offset",
+					runningTween.TweenProperty(Boyka, "offset",
 						new Vector2(-1000.0f, 0.0f), 0.3);
 					break;
 				case 3:
-					GetNode<Node2D>("officebackground/officewindow/BoykaPeeking").Visible = true;
+					BoykaPeeking.Visible = true;
 					break;
 				case 4:
 					// Force the player camera to move
 					EmitSignal(SignalName.SpringtrapJumpscare);
 					AI.canPlayerMoveCamera = false;
-					GetNode<Node2D>("officebackground/officewindow/BoykaPeeking").Visible = false;
-					GetNode<Node2D>("officebackground/officewindow/BoykaJumpscare").Visible = true;
+					BoykaPeeking.Visible = false;
+					BoykaJumpscare.Visible = true;
 
 					Tween jumpscareTween = GetTree().CreateTween();
-					jumpscareTween.TweenProperty(GetNode<Sprite2D>("officebackground"), "position",
+					jumpscareTween.TweenProperty(OfficeBackground, "position",
 						new Vector2(360f, 0f), 0.5);
 					_targetX = -360f;
 					
@@ -74,11 +83,11 @@ public partial class Office : Camera2D
 		}
 		catch (Exception e)
 		{
-			GD.Print("CRASH! ------------------------------------------------------------------------------");
-											GD.PrintErr(e.Message);
-											GD.Print(e.StackTrace);
-											GD.Print(e.Source);
-			GD.Print("CRASH! ------------------------------------------------------------------------------");
+			GD.Print("ERR ------------------------------------------------------------------------------");
+												GD.PrintErr(e.Message);
+												GD.Print(e.StackTrace);
+												GD.Print(e.Source);
+			GD.Print("ERR ------------------------------------------------------------------------------");
 		}
 	}
 	
@@ -115,7 +124,7 @@ public partial class Office : Camera2D
 			_targetX = Mathf.Clamp(_targetX, -360f, 360f);
 		}
 
-		var bg = GetNode<Sprite2D>("officebackground");
+		var bg =  OfficeBackground;
 		bg.Position = new Vector2(
 			Mathf.Lerp(bg.Position.X, -_targetX, SmoothFactor * (float)delta),
 			bg.Position.Y

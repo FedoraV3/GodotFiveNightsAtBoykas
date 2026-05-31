@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://rdou5o4euldu" path="res://scripts/Office.cs" id="1_ei2s5"]
 [ext_resource type="Texture2D" uid="uid://cb4u5ekk6cian" path="res://images/fg.png" id="1_g3mwp"]
-[ext_resource type="Shader" uid="uid://dblc35dg2abvx" path="res://office.gdshader" id="2_3xqf3"]
 [ext_resource type="Texture2D" uid="uid://beio3dm84xebi" path="res://images/officewindow.png" id="3_u8nhc"]
 [ext_resource type="Texture2D" uid="uid://c8x1aow4aihem" path="res://images/8a4ac6a2a4ee05977b511865eefa7fda.jpg" id="4_43ocd"]
 [ext_resource type="Texture2D" uid="uid://cfcnpgfkvkb55" path="res://images/MV5BZGY0ZjEwNGUtZTJmYy00ZDNiLTllMTYtN2Q5YjRkNDllYzdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.png" id="5_lcnwv"]
@@ -11,21 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://bvay413ja13u2" path="res://camera.tscn" id="8_wruqr"]
 [ext_resource type="PackedScene" uid="uid://cm21qjwttq52f" path="res://restartpanel.tscn" id="9_lcwox"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xqf3"]
-shader = ExtResource("2_3xqf3")
-shader_parameter/coeff = 0.0
-
-[node name="Office" type="Camera2D" unique_id=1851816946]
+[node name="Office" type="Camera2D" unique_id=1851816946 node_paths=PackedStringArray("BoykaPeeking", "BoykaJumpscare", "Boyka", "OfficeBackground")]
 position = Vector2(639.95, 384)
 script = ExtResource("1_ei2s5")
 PanLimit = 360.0
+BoykaPeeking = NodePath("officebackground/officewindow/BoykaPeeking")
+BoykaJumpscare = NodePath("officebackground/officewindow/BoykaJumpscare")
+Boyka = NodePath("officebackground/officewindow/Boyka")
+OfficeBackground = NodePath("officebackground")
 
 [node name="officebackground" type="Sprite2D" parent="." unique_id=1401575545]
 light_mask = 0
 visibility_layer = 2
 z_index = 600
 z_as_relative = false
-material = SubResource("ShaderMaterial_3xqf3")
 texture = ExtResource("1_g3mwp")
 metadata/_edit_group_ = true
 
@@ -62,13 +60,15 @@ skew = -0.017453313
 texture = ExtResource("5_lcnwv")
 metadata/_edit_group_ = true
 
-[node name="Camera" parent="officebackground" unique_id=1482994270 instance=ExtResource("8_wruqr")]
+[node name="Camera" parent="officebackground" unique_id=1482994270 node_paths=PackedStringArray("officeBackground") instance=ExtResource("8_wruqr")]
 position = Vector2(562.99994, 0)
 scale = Vector2(0.99999994, 0.99999994)
+officeBackground = NodePath("..")
 
-[node name="RestartPanel" parent="officebackground" unique_id=155301180 instance=ExtResource("9_lcwox")]
+[node name="RestartPanel" parent="officebackground" unique_id=155301180 node_paths=PackedStringArray("officeBackground") instance=ExtResource("9_lcwox")]
 z_index = 4096
 position = Vector2(-648.95, 331.67)
+officeBackground = NodePath("..")
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=662434371]
 stream = ExtResource("6_lcnwv")

@@ -30,8 +30,8 @@ public partial class FNAFAI : Node
 	
 	private Dictionary<SPRINGTRAP_POSITIONS, List<SPRINGTRAP_POSITIONS>> cameraGraph = new()
 	{
-		{ SPRINGTRAP_POSITIONS.Cam01, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam02, SPRINGTRAP_POSITIONS.Cam06, SPRINGTRAP_POSITIONS.OfficeWindow } },
-		{ SPRINGTRAP_POSITIONS.Cam02, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam01, SPRINGTRAP_POSITIONS.Cam03, SPRINGTRAP_POSITIONS.Cam05, SPRINGTRAP_POSITIONS.OfficeDoor } },
+		{ SPRINGTRAP_POSITIONS.Cam01, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam02, SPRINGTRAP_POSITIONS.Cam06, SPRINGTRAP_POSITIONS.OfficeDoor } },
+		{ SPRINGTRAP_POSITIONS.Cam02, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam01, SPRINGTRAP_POSITIONS.Cam03, SPRINGTRAP_POSITIONS.Cam05, SPRINGTRAP_POSITIONS.OfficeWindow } },
 		{ SPRINGTRAP_POSITIONS.Cam03, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam02, SPRINGTRAP_POSITIONS.Cam04 } },
 		{ SPRINGTRAP_POSITIONS.Cam04, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam03, SPRINGTRAP_POSITIONS.Cam10 } },
 		{ SPRINGTRAP_POSITIONS.Cam10, new List<SPRINGTRAP_POSITIONS> { SPRINGTRAP_POSITIONS.Cam04, SPRINGTRAP_POSITIONS.Cam09 } },
@@ -87,7 +87,7 @@ public partial class FNAFAI : Node
 					EmitSignal(SignalName.springtrapMoved);
 					break;
 			}
-			
+			// debug
 			GetNode<Label>("/root/Office/Label").Text = $"My position: {springTrapPos}";
 		}
 		else
@@ -102,6 +102,7 @@ public partial class FNAFAI : Node
 				EmitSignal(SignalName.springtrapMovedInOffice, springtrapStage);
 				
 			}
+			// debug
 			GetNode<Label>("/root/Office/Label").Text = $"I'm in your office";	
 		}
 	}
@@ -121,5 +122,4 @@ public partial class FNAFAI : Node
 	{
 				
 	}
-	
 }

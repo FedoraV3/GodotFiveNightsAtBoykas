@@ -99,8 +99,11 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Camera" type="Node2D" unique_id=1482994270]
+[node name="Camera" type="Node2D" unique_id=1482994270 node_paths=PackedStringArray("mainCamera", "cameraPanel", "openCameraButton")]
 script = ExtResource("1_w2vvk")
+mainCamera = NodePath("MainCamera")
+cameraPanel = NodePath("CameraPanel")
+openCameraButton = NodePath("OpenCameraButton")
 
 [node name="CameraPanel" type="Sprite2D" parent="." unique_id=1839065968]
 visible = false
